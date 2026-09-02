@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Babai ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Hind+Siliguri:wght@300;400;600&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+    <div class="ambient-light-1"></div>
+    <div class="ambient-light-2"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div id="audioControls" class="audio-controls hidden">
+        <button id="musicToggleBtn" class="glass-btn-icon" aria-label="Toggle Music">
+            <svg id="iconPlaying" class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            <svg id="iconPaused" class="icon hidden" viewBox="0 0 24 24"><path fill="currentColor" d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c.32 0 .62.05.91.13l5.02 5.02L20.73 21 22 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2V7z"/></svg>
+        </button>
+    </div>
+
+    <audio id="bgMusic" loop preload="auto"></audio>
+
+    <main class="app-container">
+
+        <section id="secWelcome" class="view-section active">
+            <div class="glass-card welcome-card">
+                <span class="editorial-subtitle">A PRIVATE EXPERIENCE</span>
+                <h1 id="introText" class="bengali-title"></h1>
+                <p id="introSubText" class="bengali-subtext"></p>
+                <div class="cta-wrapper">
+                    <button id="btnBegin" class="btn-cinematic">
+                        <span>CLICK TO BEGIN ✨</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="secMemories" class="view-section hidden">
+            <div id="photoStageBackground" class="photo-stage-bg"></div>
+            <div class="photo-presentation">
+                <div class="frame-container">
+                    <img id="memoryPhoto" src="" alt="Memory">
+                    <div class="vignette-overlay"></div>
+                </div>
+                <div class="caption-container">
+                    <p id="photoCaption" class="photo-caption"></p>
+                </div>
+                <button id="btnNextPhoto" class="btn-cinematic btn-next">
+                    <span>NEXT &rarr;</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="secEmotionalMessage" class="view-section hidden">
+            <div class="glass-card message-card">
+                <div id="emotionalMessageText" class="bengali-text-reveal"></div>
+                <button id="btnToCountdown" class="btn-cinematic margin-top-lg">
+                    <span>CONTINUE &rarr;</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="secCountdown" class="view-section hidden">
+            <div class="glass-card countdown-card">
+                <div class="lock-indicator">
+                    <span class="pulse-dot"></span>
+                    <span class="editorial-subtitle">LOCKED UNTIL BIRTHDAY</span>
+                </div>
+                
+                <div class="countdown-grid">
+                    <div class="time-block">
+                        <span id="cntDays" class="time-num">00</span>
+                        <span class="time-label">DAYS</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="cntHours" class="time-num">00</span>
+                        <span class="time-label">HOURS</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="cntMinutes" class="time-num">00</span>
+                        <span class="time-label">MINUTES</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="cntSeconds" class="time-num">00</span>
+                        <span class="time-label">SECONDS</span>
+                    </div>
+                </div>
+
+                <div class="locked-text-wrapper">
+                    <p id="waitingText" class="bengali-subtext"></p>
+                    <p class="bengali-subtext subtle-fade">সময় হলে সবকিছু তোমার জন্য খুলে যাবে।</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="secVideo" class="view-section hidden">
+            <div id="videoContainer" class="video-wrapper">
+                </div>
+        </section>
+
+        <section id="secBirthday" class="view-section hidden">
+            <div class="birthday-reveal-content">
+                <h2 class="cinematic-heading glow-text">HAPPY BIRTHDAY</h2>
+                <h1 id="recipientName" class="name-heading">BABAI ❤️</h1>
+                <div class="divider-line"></div>
+                <div id="birthdayMessage" class="bengali-letter"></div>
+                <button id="btnToFinal" class="btn-cinematic margin-top-lg">
+                    <span>CONTINUE &rarr;</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="secFinal" class="view-section hidden">
+            <div class="final-container">
+                <div class="final-frame">
+                    <img id="finalPhoto" src="" alt="Final Memory">
+                    <div class="vignette-overlay"></div>
+                </div>
+                <h3 class="final-tagline">Forever & Always ❤️</h3>
+                <button id="btnReplay" class="btn-cinematic">
+                    <span>Replay ✨</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
